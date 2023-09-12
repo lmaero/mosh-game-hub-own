@@ -1,5 +1,6 @@
 'use client'
 
+import { Navbar } from '@/components/Navbar'
 import { Grid, GridItem, Show } from '@chakra-ui/react'
 
 export default function Home() {
@@ -10,8 +11,8 @@ export default function Home() {
         lg: '"nav nav" "aside main"',
       }}
     >
-      <GridItem area={'nav'} bg={'coral'}>
-        Nav
+      <GridItem area={'nav'}>
+        <Navbar />
       </GridItem>
 
       <Show above={'lg'}>
