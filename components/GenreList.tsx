@@ -12,9 +12,10 @@ import React from 'react'
 
 interface Props {
   onSelectGenre: (genre: Genre) => void
+  selectedGenre: Genre | null
 }
 
-function GenreList({ onSelectGenre }: Props) {
+function GenreList({ onSelectGenre, selectedGenre }: Props) {
   const { data, error, isLoading } = useGenres()
 
   if (error) return null
@@ -32,6 +33,7 @@ function GenreList({ onSelectGenre }: Props) {
               src={getCroppedImageUrl(genre.image_background)}
             />
             <Button
+              fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'normal'}
               variant={'link'}
               fontSize={'lg'}
               onClick={() => onSelectGenre(genre)}
