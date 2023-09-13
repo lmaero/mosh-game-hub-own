@@ -3,6 +3,7 @@
 import GameGrid from '@/components/GameGrid'
 import GenreList from '@/components/GenreList'
 import { Navbar } from '@/components/Navbar'
+import PlatformSelector from '@/components/PlatformSelector'
 import { Genre } from '@/hooks/useGenres'
 import { Grid, GridItem, Show } from '@chakra-ui/react'
 import { useState } from 'react'
@@ -37,6 +38,7 @@ export default function Home() {
       </Show>
 
       <GridItem area={'main'}>
+        <PlatformSelector />
         <GameGrid selectedGenre={selectedGenre} />
       </GridItem>
     </Grid>
