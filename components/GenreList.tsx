@@ -3,6 +3,7 @@ import getCroppedImageUrl from '@/services/image-url'
 import {
   Button,
   HStack,
+  Heading,
   Image,
   List,
   ListItem,
@@ -22,28 +23,36 @@ function GenreList({ onSelectGenre, selectedGenre }: Props) {
   if (isLoading) return <Spinner />
 
   return (
-    <List>
-      {data.map((genre) => (
-        <ListItem key={genre.id} paddingY={'5px'}>
-          <HStack>
-            <Image
-              alt={genre.name}
-              borderRadius={8}
-              boxSize={'32px'}
-              src={getCroppedImageUrl(genre.image_background)}
-            />
-            <Button
-              fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'normal'}
-              variant={'link'}
-              fontSize={'lg'}
-              onClick={() => onSelectGenre(genre)}
-            >
-              {genre.name}
-            </Button>
-          </HStack>
-        </ListItem>
-      ))}
-    </List>
+    <>
+      <Heading fontSize='2xl' mb={3}>
+        Genres
+      </Heading>
+      <List>
+        {data.map((genre) => (
+          <ListItem key={genre.id} paddingY={'5px'}>
+            <HStack>
+              <Image
+                objectFit='cover'
+                alt={genre.name}
+                borderRadius={8}
+                boxSize={'32px'}
+                src={getCroppedImageUrl(genre.image_background)}
+              />
+              <Button
+                textAlign='left'
+                whiteSpace='normal'
+                fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'normal'}
+                variant={'link'}
+                fontSize={'lg'}
+                onClick={() => onSelectGenre(genre)}
+              >
+                {genre.name}
+              </Button>
+            </HStack>
+          </ListItem>
+        ))}
+      </List>
+    </>
   )
 }
 
