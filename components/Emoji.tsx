@@ -22,7 +22,14 @@ function Emoji({ rating }: Props) {
     5: { src: bullsEye.src, alt: 'exceptional', boxSize: '35px' },
   }
 
-  return <Image {...emojiMap[rating]} marginTop={1} />
+  return (
+    <Image
+      boxSize={emojiMap[rating].boxSize}
+      marginTop={1}
+      src={emojiMap[rating].src}
+      alt={emojiMap[rating].alt}
+    />
+  )
 }
 
 export default Emoji
