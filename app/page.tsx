@@ -13,6 +13,7 @@ import { useState } from 'react'
 export interface GameQuery {
   genre: Genre | null
   platform: Platform | null
+  sortOrder: string
 }
 
 export default function Home() {
@@ -53,7 +54,12 @@ export default function Home() {
             }
           />
 
-          <SortSelector />
+          <SortSelector
+            onSelectSortOrder={(sortOrder) =>
+              setGameQuery({ ...gameQuery, sortOrder })
+            }
+            sortOrder={gameQuery.sortOrder}
+          />
         </HStack>
 
         <GameGrid gameQuery={gameQuery} />
