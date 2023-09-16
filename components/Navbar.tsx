@@ -1,14 +1,15 @@
 'use client'
 
 import ColorModeSwitch from '@/components/ColorModeSwitch'
+import SearchInput from '@/components/SearchInput'
 import logo from '@/public/logo.webp'
-import { HStack } from '@chakra-ui/react'
-import Image from 'next/image'
+import { HStack, Image } from '@chakra-ui/react'
 
 export function Navbar() {
   return (
-    <HStack justifyContent={'space-between'} padding={'10px'}>
-      <Image src={logo} alt={'Logo'} width={60} />
+    <HStack padding='10px'>
+      <Image src={logo.src} alt='Logo' boxSize='60px' />
+      <SearchInput />
       <ColorModeSwitch />
     </HStack>
   )
